@@ -22,7 +22,7 @@ CREATE OR REPLACE PROCEDURE InserisciAnomalia (
 BEGIN
 	--Inserisci l'anomalia nella tabella ANOMALIE
 	INSERT INTO ANOMALIE (Codice, Priorita, Causa, Sensore)
-	VALUES (a_codice, a_priorita, a_causa, a_sensore);
+	VALUES (p_codice, p_priorita, p_causa, p_sensore);
 	COMMIT;
 END InserisciAnomalia;
 
