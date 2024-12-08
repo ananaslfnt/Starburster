@@ -9,7 +9,7 @@ BEGIN
 	-- Inserisci la rilevazione nella tabella RILEVAZIONI
 	INSERT INTO RILEVAZIONI (Codice, Valore, Sensore)
 	VALUES (p_codice, p_valore, p_sensore);
-COMMIT;
+	COMMIT;
 END InserisciRilevazione;
 
 -- Procedure N.2 Inserimento nella tabella Anomalie
@@ -23,7 +23,7 @@ BEGIN
 	--Inserisci l'anomalia nella tabella ANOMALIE
 	INSERT INTO ANOMALIE (Codice, Priorita, Causa, Sensore)
 	VALUES (a_codice, a_priorita, a_causa, a_sensore);
-COMMIT;
+	COMMIT;
 END InserisciAnomalia;
 
 
@@ -40,14 +40,15 @@ BEGIN
 	SELECT Codice INTO v_anomalia
 	FROM ANOMALIE
 	WHERE Sensore = p_sensore AND Data_ora = (
-	SELECT MAX(Data_ora)
-	FROM Anomalie
-	WHERE Sensore = p_sensore );
+		SELECT MAX(Data_ora)
+		FROM Anomalie
+		WHERE Sensore = p_sensore
+	);
 	
 	-- Inserimento dell'intervento
 	INSERT INTO Interventi(Codice, Descrizione, Data_esecuzione, Anomalia)
 	VALUES (p_intervento, p_descrizione, TO_DATE(p_data_esecuzione, 'YYYY-MM-DD'), v_anomalia);
-COMMIT;
+	COMMIT;
 EXCEPTION
 	WHEN NO_DATA_FOUND THEN
 		RAISE_APPLICATION_ERROR(-20001,  'Non ci sono anomalie registrate per questo sensore');
@@ -65,13 +66,14 @@ BEGIN
 	WHERE Codice = p_missione;
 	
 	--Se la missione è completata o annullata, pone in stand-by i sensori
-	IF p_nuovo_stato IN ('Completata', 'Annullata') THEN
-	UPDATE SENSORI
-	SET STATO = 'Stand-By'
-	WHERE ID IN (
-	SELECT Sensore
-	FROM SensoriMissioni
-	WHERE Missione = p_missione
-	);
-COMMIT;
+	IF p_nuovo_stato IN ('Completata', 'Annullata')	 THEN
+		UPDATE SENSORI
+		SET STATO = 'Stand-By'
+		WHERE ID IN (
+			SELECT Sensore
+			FROM SensoriMissioni
+			WHERE Missione = p_missione
+		);
+	END IF;
+	COMMIT;
 END AggiornaStatoMissione;
