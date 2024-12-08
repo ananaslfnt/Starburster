@@ -1,5 +1,3 @@
-Trigger inserimenti in impiega e adopera se sono gia assegnati a missioni in corso o pianificate( due in totale)
-
 -- Trigger N.1 Inserimento Data_ora di sistema all'inserimento di un Report
 CREATE OR REPLACE TRIGGER TRIGGER_REPORT_DATA
 BEFORE INSERT ON REPORT
@@ -8,7 +6,7 @@ BEGIN
 	:NEW.Data_ora := SYSDATE;
 END;
 
--- Trigger N.2 Inserimento Data_ora di sistema all'inserimento di un Rilevamento
+-- Trigger N.2 Inserimento Data_ora di sistema all'inserimento di un Rilevazione
 CREATE OR REPLACE TRIGGER TRIGGER_RILEVAMENTO_DATA
 BEFORE INSERT ON RILEVAZIONI
 FOR EACH ROW
@@ -16,7 +14,7 @@ BEGIN
 	:NEW.Data_ora := SYSDATE;
 END;
 
--- Trigger N.3 Controllo dello stato del sensore al momento dell'inserimento di una rivelazione
+-- Trigger N.3 Controllo dello stato del sensore al momento dell'inserimento di una rilevazione
 CREATE OR REPLACE TRIGGER TRIGGER_VERIFICA_SENSORI_ATTIVI
 BEFORE INSERT ON RILEVAZIONI
 FOR EACH ROW
