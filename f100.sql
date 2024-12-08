@@ -28,12 +28,12 @@ prompt APPLICATION 100 - Agenzia spaziale
 -- Application Export:
 --   Application:     100
 --   Name:            Agenzia spaziale
---   Date and Time:   19:38 Sunday December 8, 2024
+--   Date and Time:   19:59 Sunday December 8, 2024
 --   Exported By:     TESTGIO
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                     10
---       Items:                   20
+--       Items:                   19
 --       Processes:                8
 --       Regions:                 23
 --       Buttons:                  5
@@ -116,7 +116,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Agenzia spaziale'
 ,p_last_updated_by=>'TESTGIO'
-,p_last_upd_yyyymmddhh24miss=>'20241208193244'
+,p_last_upd_yyyymmddhh24miss=>'20241208195723'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>9
 ,p_print_server_type=>'NATIVE'
@@ -23321,7 +23321,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'TESTGIO'
-,p_last_upd_yyyymmddhh24miss=>'20241208193244'
+,p_last_upd_yyyymmddhh24miss=>'20241208195723'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(16680588467284509)
@@ -23395,22 +23395,29 @@ wwv_flow_imp_page.create_page_item(
 ,p_name=>'P1_CODICE'
 ,p_source_data_type=>'VARCHAR2'
 ,p_is_primary_key=>true
-,p_item_sequence=>30
+,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
+,p_prompt=>'Codice'
 ,p_source=>'CODICE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_HIDDEN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_field_template=>wwv_flow_imp.id(16641803320284475)
+,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_protection_level=>'S'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(17005786915408418)
 ,p_name=>'P1_TITOLO'
 ,p_source_data_type=>'VARCHAR2'
 ,p_is_required=>true
-,p_item_sequence=>40
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_prompt=>'Titolo'
@@ -23433,7 +23440,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_data_type=>'CLOB'
 ,p_source_data_type=>'CLOB'
 ,p_is_required=>true
-,p_item_sequence=>50
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_prompt=>'Descrizione'
@@ -23452,13 +23459,13 @@ wwv_flow_imp_page.create_page_item(
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(17005969809408420)
-,p_name=>'P1_DATA_ORA'
+,p_name=>'P1_DATA'
 ,p_source_data_type=>'DATE'
 ,p_is_required=>true
-,p_item_sequence=>60
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
-,p_prompt=>'Data Ora'
+,p_prompt=>'Data'
 ,p_source=>'DATA_ORA'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
@@ -23478,7 +23485,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_name=>'P1_EQUIPAGGIO'
 ,p_source_data_type=>'VARCHAR2'
 ,p_is_required=>true
-,p_item_sequence=>70
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_prompt=>'Equipaggio'
@@ -23500,7 +23507,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_name=>'P1_MISSIONE'
 ,p_source_data_type=>'VARCHAR2'
 ,p_is_required=>true
-,p_item_sequence=>80
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
 ,p_prompt=>'Missione'
@@ -23512,32 +23519,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_field_template=>wwv_flow_imp.id(16641803320284475)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(17006540286408426)
-,p_name=>'CODICE'
-,p_source_data_type=>'VARCHAR2'
-,p_is_required=>true
-,p_is_primary_key=>true
-,p_is_query_only=>true
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(17005405343408415)
-,p_item_source_plug_id=>wwv_flow_imp.id(17005405343408415)
-,p_prompt=>'Codice'
-,p_source=>'CODICE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_cMaxlength=>10
-,p_begin_on_new_line=>'N'
-,p_field_template=>wwv_flow_imp.id(16641803320284475)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_protection_level=>'S'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
 ,p_attribute_04=>'TEXT'
