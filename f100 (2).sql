@@ -28,7 +28,7 @@ prompt APPLICATION 100 - Agenzia spaziale
 -- Application Export:
 --   Application:     100
 --   Name:            Agenzia spaziale
---   Date and Time:   18:05 Monday December 9, 2024
+--   Date and Time:   00:08 Tuesday December 10, 2024
 --   Exported By:     TESTGIO
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -116,7 +116,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'Agenzia spaziale'
 ,p_last_updated_by=>'TESTGIO'
-,p_last_upd_yyyymmddhh24miss=>'20241209180536'
+,p_last_upd_yyyymmddhh24miss=>'20241210000714'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>12
 ,p_print_server_type=>'NATIVE'
@@ -24467,25 +24467,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'13'
 ,p_last_updated_by=>'TESTGIO'
-,p_last_upd_yyyymmddhh24miss=>'20241209180536'
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(17005190471408412)
-,p_plug_name=>'Missioni in corso'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_escape_on_http_output=>'Y'
-,p_plug_template=>wwv_flow_imp.id(16571442308284453)
-,p_plug_display_sequence=>20
-,p_query_type=>'TABLE'
-,p_query_table=>'MISSIONI'
-,p_query_where=>'Stato=''In Corso'''
-,p_include_rowid_column=>false
-,p_plug_source_type=>'NATIVE_JQM_LIST_VIEW'
-,p_plug_query_num_rows=>15
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_attribute_02=>'TIPOLOGIA'
-,p_attribute_08=>'DATA_INIZIO'
-,p_attribute_16=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::'
+,p_last_upd_yyyymmddhh24miss=>'20241210000714'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(17279390445178414)
@@ -24494,11 +24476,12 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_template=>wwv_flow_imp.id(16571442308284453)
 ,p_plug_display_sequence=>10
 ,p_include_in_reg_disp_sel_yn=>'Y'
+,p_plug_display_point=>'REGION_POSITION_01'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<html lang="it-IT">',
 '',
 '<head>',
-'    <title>ASS | Agenzia Spaziale STARBURSTER </title>',
+'    <title>ASS | Agenzia Spaziale STARBURSTER</title>',
 '',
 '    <!-- Bootstrap CSS -->',
 '    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" ',
@@ -24512,7 +24495,7 @@ wwv_flow_imp_page.create_page_plug(
 '	',
 '<body>',
 '        ',
-'<div id="wrapper" class="reply-wrapper">',
+'<div id="wrapper" class="reply-wrapper text-center">',
 '',
 '    <div class="it-hero-wrapper it-dark it-overlay">',
 '        <div class="img-responsive-wrapper">',
@@ -24534,7 +24517,7 @@ wwv_flow_imp_page.create_page_plug(
 '',
 '    <div class="main my-5" role="main">',
 '        <div class="container">',
-'            <div class="row">',
+'            <div class="row justify-content-center">',
 '				',
 '<!-- Page -->',
 '<div class="col-md-8">',
@@ -24553,12 +24536,10 @@ unistr('			La corsa alla colonizzazione della Luna vede l\2019Italia e in partic
 '				}',
 '			}); </script><div style="clear: both;"></div></div>    </div>',
 '	<section class="text">',
-'		<img width="300" height="201" src="https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-300x201.jpg" class="attachment-medium size-medium wp-image-20414 wp-post-image" alt="Eclissi di Luna del 15 giugno 2011" decoding="async" fetchpriority'
-||'="high" srcset="https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-300x201.jpg 300w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-768x514.jpg 768w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-1024x686.jpg'
-||' 1024w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-1536x1028.jpg 1536w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-2048x1371.jpg 2048w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-640x429.jpg 64'
-||'0w, https://www.asi.it/wp-content/uploads/2020/12/IMGP1079-scaled-500x335.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /><p>La conquista della Luna, questa volta per restarci, con sviluppo di un sistema informatico per consentire la gestione e l'
-||unistr('\2019analisi avanzata dei dati raccolti durante le missioni di esplorazione. Vede le collaborazioni del nostro paese con ASS e Nasa consolidate e inserite in un percorso avviato di presenza umana nello spazio, che forte degli oltre vent\2019anni di cooperazi')
-||'one in orbita bassa sulla Stazione spaziale internazionale, ora punta alla conquista del nostro satellite.</p>',
+'		<img width="300" height="201" class="attachment-medium size-medium wp-image-20414 wp-post-image" alt="Eclissi di Luna del 15 giugno 2011" decoding="async" fetchpriority="high" srcset="https://staticfanpage.akamaized.net/wp-content/uploads/sites/5/2'
+||unistr('021/04/51046726427_33a33f01f7_k.jpg 500w" sizes="(max-width: 300px) 100vw, 300px" /><p>La conquista della Luna, questa volta per restarci, con sviluppo di un sistema informatico per consentire la gestione e l\2019analisi avanzata dei dati raccolti durant')
+||unistr('e le missioni di esplorazione. Vede le collaborazioni del nostro paese con ASS e Nasa consolidate e inserite in un percorso avviato di presenza umana nello spazio, che forte degli oltre vent\2019anni di cooperazione in orbita bassa sulla Stazione spazial')
+||'e internazionale, ora punta alla conquista del nostro satellite.</p>',
 unistr('<p>La cornice entro la quale si sta concretizzando l\2019obiettivo di posizionare sensori avanzati in diverse regioni della superficie della Luna e di robot autonomi che supportano le operazioni sul campo. Il programma prevede che entro il 2024 l\2019allunag')
 ||unistr('gio dei primi sensori e il loro assemblaggio in orbita da parte di un team di specialisti.  Il sistema ha l\2019obiettivo di coordinare in tempo reale le attivit\00E0 dei membri della missione, gestire i dati provenienti dai sensori e consentire un monitorag')
 ||'gio completo e dettagliato delle operazioni in corso. </p>',
@@ -24567,13 +24548,34 @@ unistr('<p>L\2019impianto normativo si articola in collaborazioni bilaterali e m
 ||'el 1967.</p>',
 unistr('<p>In questo contesto l\2019Italia, oltre a operare all\2019interno dell\2019Esa tramite l\2019ASS, ha definito la sua partecipazione al programma in un bilaterale con la Nasa tenutosi il 25 settembre del 2020, per poi firmare i primi accordi italo-americani a ottob')
 ||'re dello scorso anno.</p>',
-unistr('<p><em>Crediti applicativi: Giovanni Gismondi, Andrea Gatto, Samuele Garofalo, Universit\00E0 degli Studi di Napoli Federico II</em></p>'),
+unistr('<p><em>Crediti immagine: Giovanni Gismondi, Andrea Gatto, Samuele Garofalo, Universit\00E0 degli Studi di Napoli Federico II</em></p>'),
 '    </section>',
 '</body>',
 '</html>'))
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'Y'
 ,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(17005190471408412)
+,p_plug_name=>'Missioni in corso'
+,p_parent_plug_id=>wwv_flow_imp.id(17279390445178414)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_escape_on_http_output=>'Y'
+,p_plug_template=>wwv_flow_imp.id(16571442308284453)
+,p_plug_display_sequence=>10
+,p_plug_display_point=>'SUB_REGIONS'
+,p_query_type=>'TABLE'
+,p_query_table=>'MISSIONI'
+,p_query_where=>'Stato=''In Corso'''
+,p_include_rowid_column=>false
+,p_plug_source_type=>'NATIVE_JQM_LIST_VIEW'
+,p_plug_query_num_rows=>15
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_02=>'TIPOLOGIA'
+,p_attribute_06=>'CODICE'
+,p_attribute_08=>'DATA_INIZIO'
+,p_attribute_16=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::'
 );
 end;
 /
